@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fQc-BF-fvc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game Search Table View Controller-->
+        <scene sceneID="HQO-bP-QSq">
+            <objects>
+                <tableViewController id="fQc-BF-fvc" customClass="GameSearchTableViewController" customModule="GameDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F1L-jZ-DdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="RnS-ai-svL">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" rowHeight="70" id="Tdo-8M-0LP" customClass="GameTableViewCell" customModule="GameDB" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tdo-8M-0LP" id="8qm-44-uDZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmw-xj-Wta">
+                                            <rect key="frame" x="20" y="10" width="50" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNT-kl-69b">
+                                                    <rect key="frame" x="13.5" y="14.5" width="23.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="SNT-kl-69b" firstAttribute="centerX" secondItem="Xmw-xj-Wta" secondAttribute="centerX" id="I0Y-4q-5Kh"/>
+                                                <constraint firstItem="SNT-kl-69b" firstAttribute="centerY" secondItem="Xmw-xj-Wta" secondAttribute="centerY" id="JUz-mz-9mh"/>
+                                                <constraint firstAttribute="height" constant="50" id="uuN-j2-Z4a"/>
+                                                <constraint firstAttribute="width" constant="50" id="wFn-iE-oYt"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9re-8s-TUi" userLabel="Game Title">
+                                            <rect key="frame" x="78" y="24.5" width="308" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Xmw-xj-Wta" firstAttribute="leading" secondItem="8qm-44-uDZ" secondAttribute="leading" constant="20" id="C8V-tD-sCG"/>
+                                        <constraint firstItem="Xmw-xj-Wta" firstAttribute="centerY" secondItem="8qm-44-uDZ" secondAttribute="centerY" id="GFI-iv-osf"/>
+                                        <constraint firstItem="9re-8s-TUi" firstAttribute="centerY" secondItem="8qm-44-uDZ" secondAttribute="centerY" id="W4v-Ry-eeB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9re-8s-TUi" secondAttribute="trailing" constant="8" id="Y1j-VS-gUe"/>
+                                        <constraint firstItem="9re-8s-TUi" firstAttribute="leading" secondItem="Xmw-xj-Wta" secondAttribute="trailing" constant="8" id="rA1-Vg-QEy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameTitleLabel" destination="9re-8s-TUi" id="cib-na-MOl"/>
+                                    <outlet property="ratingLabel" destination="SNT-kl-69b" id="crU-HC-P0L"/>
+                                    <outlet property="ratingView" destination="Xmw-xj-Wta" id="9zU-57-lpv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fQc-BF-fvc" id="89H-bu-ZYK"/>
+                            <outlet property="delegate" destination="fQc-BF-fvc" id="xuF-Nc-L4W"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="RnS-ai-svL" id="52r-gB-xzw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPV-bg-hV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192.75362318840581" y="-11.383928571428571"/>
+        </scene>
+    </scenes>
+</document>
