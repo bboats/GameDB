@@ -16,10 +16,7 @@ class GameSampleNetworking {
     //?page=2
     //?search=final
     
-    func getGameSample(page: Int, completion: @escaping(GameResult) -> Void ) {
-        var parameters: [String: Any] = [:]
-        parameters["page"] = page
-        
+    func getGameSample(parameters: [String:Any], completion: @escaping(GameResult) -> Void ) {
         request("\(baseUrl)/games",
             method: .get,
             parameters: parameters).responseJSON { response in

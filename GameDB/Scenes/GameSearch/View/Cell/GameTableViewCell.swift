@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class GameTableViewCell: UITableViewCell {
 
@@ -26,9 +27,10 @@ class GameTableViewCell: UITableViewCell {
     private func setupCell() {
         gameTitleLabel.text = game.name
         gameTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        gameTitleLabel.textColor = .black
         
         ratingView.layer.cornerRadius = 10
-        if let unRating = game.rating {
+        if game.ratingsCount! > 10, let unRating = game.rating {
             ratingLabel.text = String(unRating)
             ratingLabel.font = UIFont.boldSystemFont(ofSize: 18)
             switch unRating {

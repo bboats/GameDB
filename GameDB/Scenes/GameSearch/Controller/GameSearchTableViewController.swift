@@ -18,7 +18,6 @@ class GameSearchTableViewController: UITableViewController {
     private let viewModel = GameSearchViewModel()
     private var lastPage = 1
     private let refresher = UIRefreshControl()
-    
     private let searchBar = UISearchBar()
     
     // MARK: - LifeCycle
@@ -45,16 +44,21 @@ class GameSearchTableViewController: UITableViewController {
     
     func setupBind() {
         viewModel.reloadTableView = tableView.reloadData
+        viewModel.beginLoading = refresher.beginRefreshing
         viewModel.finishLoading = refresher.endRefreshing
     }
 
     func setupFetch() {
-        refresher.beginRefreshing()
         viewModel.getGameSample(page: lastPage)
     }
     
     @objc func refreshData() {
         viewModel.getGameSample(page: 1)
+    }
+    
+    @objc func refreshSearchData() {
+        guard let texto = searchBar.text else { return }
+        viewModel.searchGameSample(page: 1, searchField: texto)
     }
     
     // MARK: - DataSource
@@ -76,6 +80,7 @@ class GameSearchTableViewController: UITableViewController {
     // MARK: - TableViewDelegate
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.getGameCount() - 5 {
+            print(lastPage)
             lastPage += 1
             viewModel.getGameSample(page: lastPage)
         }
@@ -99,8 +104,15 @@ class GameSearchTableViewController: UITableViewController {
 
 extension GameSearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //filtrar resultados de acordo com o texto pesquisado
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(refreshSearchData), object: nil)
         guard let texto = searchBar.text else { return }
-        print(texto)
+        lastPage = 1
+        viewModel.searchGameSample(page: lastPage, searchField: texto)
     }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(refreshSearchData), object: nil)
+        self.perform(#selector(refreshSearchData), with: nil, afterDelay: 0.5)
+    }
+
 }

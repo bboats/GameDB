@@ -6,6 +6,7 @@ target 'GameDB' do
   use_frameworks!
   pod "Alamofire"
   pod "Kingfisher"
+  pod "FontAwesome.swift"
   # Pods for GameDB
 
 end

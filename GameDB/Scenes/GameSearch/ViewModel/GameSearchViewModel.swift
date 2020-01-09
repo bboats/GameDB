@@ -14,15 +14,39 @@ class GameSearchViewModel {
     let gameSamplesNetworking = GameSampleNetworking()
     private var gameSamplesArray: [GameSample] = []
     var reloadTableView: () -> Void = {}
+    var beginLoading: () -> Void = {}
     var finishLoading: () -> Void = {}
+    var lastUsedParameters: [String:String] = [:]
     
     //MARK: - Functions
-    func getGameSample(page: Int) {
-        gameSamplesNetworking.getGameSample(page: page) { result in
-            if page == 1 {
-                self.gameSamplesArray = result.results
+    @objc func getGameSample(page: Int) {
+        lastUsedParameters["page"] = String(page)
+        fetchApiData()
+    }
+    
+    func searchGameSample(page: Int, searchField: String) {
+        gameSamplesArray = []
+        reloadTableView()
+        lastUsedParameters = ["page": String(page), "search": searchField]
+        fetchApiData()
+    }
+    
+    func filteredSearchGameSample(page: Int, genreList: [String]) {
+        gameSamplesArray = []
+        reloadTableView()
+        lastUsedParameters = ["page": String(page), "genres": genreList.joined(separator: ",")]
+        fetchApiData()
+    }
+    
+    //lastUsedParameters sempre eh usado
+    private func fetchApiData() {
+        self.beginLoading()
+        gameSamplesNetworking.getGameSample(parameters: lastUsedParameters) { result in
+            guard let unResults = result.results else { return }
+            if self.lastUsedParameters["page"] == "1" {
+                self.gameSamplesArray = unResults
             } else {
-                self.gameSamplesArray.append(contentsOf: result.results)
+                self.gameSamplesArray.append(contentsOf: unResults)
             }
             self.reloadTableView()
             self.finishLoading()
