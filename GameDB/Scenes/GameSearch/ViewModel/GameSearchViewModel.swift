@@ -14,16 +14,18 @@ class GameSearchViewModel {
     let gameSamplesNetworking = GameSampleNetworking()
     private var gameSamplesArray: [GameSample] = []
     var reloadTableView: () -> Void = {}
+    var finishLoading: () -> Void = {}
     
     //MARK: - Functions
     func getGameSample(page: Int) {
         gameSamplesNetworking.getGameSample(page: page) { result in
-            if self.gameSamplesArray.isEmpty {
+            if page == 1 {
                 self.gameSamplesArray = result.results
             } else {
                 self.gameSamplesArray.append(contentsOf: result.results)
             }
             self.reloadTableView()
+            self.finishLoading()
         }
     }
     

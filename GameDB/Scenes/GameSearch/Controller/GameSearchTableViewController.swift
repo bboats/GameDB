@@ -11,26 +11,52 @@ import UIKit
 class GameSearchTableViewController: UITableViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     
     // MARK: - Properties
     //instanciar os balaco
     private let gameCellIdentifier = "gameCell"
     private let viewModel = GameSearchViewModel()
     private var lastPage = 1
+    private let refresher = UIRefreshControl()
+    
+    private let searchBar = UISearchBar()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        viewModel.reloadTableView = tableView.reloadData
-        viewModel.getGameSample(page: lastPage)
+        setupSearchBar()
+        setupTableView()
+        setupBind()
+        setupFetch()
     }
     
     // MARK: - Functions
+    private func setupTableView() {
+        tableView.addSubview(refresher)
+        
+        navigationItem.titleView = searchBar
+        
+        refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
     
+    private func setupSearchBar() {
+        searchBar.delegate = self
+    }
+    
+    func setupBind() {
+        viewModel.reloadTableView = tableView.reloadData
+        viewModel.finishLoading = refresher.endRefreshing
+    }
 
+    func setupFetch() {
+        refresher.beginRefreshing()
+        viewModel.getGameSample(page: lastPage)
+    }
+    
+    @objc func refreshData() {
+        viewModel.getGameSample(page: 1)
+    }
+    
     // MARK: - DataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getGameCount()
