@@ -9,39 +9,80 @@
 import UIKit
 
 class GenreFilterTableViewController: UITableViewController {
+    
+    // MARK: - Properties
+    let viewModel = GenreFilterViewModel()
+    let genreCellIdentifier = "genreCell"
+    let refresher = UIRefreshControl()
 
+    
+    // MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupTableView()
+        setupBind()
+        setupFetch()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print(viewModel.selectedGenres.joined(separator: ","))
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // MARK: - Tableview Datasource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return viewModel.getGenreCount()
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: genreCellIdentifier, for: indexPath) as! GenreTableViewCell
+        cell.selectionStyle = .none
+        
+        cell.genre = viewModel.getGenreByIndex(index: indexPath.row)
+        
+//        if viewModel.selectGenreAt(index: indexPath.row) {
+//            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).selectedStyle()
+//            viewModel.selectedGenres.append(viewModel.getGenreByIndex(index: indexPath.row).name)
+//
+//        } else {
+//            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).unselectedStyle()
+//            viewModel.selectedGenres.removeAll { $0 == viewModel.getGenreByIndex(index: indexPath.row).name }
+//        }
 
         return cell
     }
-    */
+    
+    // MARK: - Tableview Delegate
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.selectGenreAt(index: indexPath.row) {
+            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).selectedStyle()
+            viewModel.selectedGenres.append(viewModel.getGenreByIndex(index: indexPath.row).name)
+            
+        } else {
+            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).unselectedStyle()
+            viewModel.selectedGenres.removeAll { $0 == viewModel.getGenreByIndex(index: indexPath.row).name }
+        }
+    }
+    
+    // MARK: - Functions
+    func setupTableView() {
+        tableView.addSubview(refresher)
+    }
+    
+    private func setupBind() {
+        viewModel.reloadTableView = self.tableView.reloadData
+        viewModel.beginLoading = refresher.beginRefreshing
+        viewModel.finishLoading = refresher.endRefreshing
+    }
 
+    private func setupFetch() {
+        viewModel.getGenreList()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

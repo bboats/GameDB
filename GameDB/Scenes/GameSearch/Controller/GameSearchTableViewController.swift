@@ -33,7 +33,9 @@ class GameSearchTableViewController: UITableViewController {
     private func setupTableView() {
         tableView.addSubview(refresher)
         
+        searchBar.backgroundColor = .white
         navigationItem.titleView = searchBar
+        navigationController?.navigationBar.barTintColor = .black
         
         refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
@@ -80,7 +82,6 @@ class GameSearchTableViewController: UITableViewController {
     // MARK: - TableViewDelegate
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.getGameCount() - 5 {
-            print(lastPage)
             lastPage += 1
             viewModel.getGameSample(page: lastPage)
         }

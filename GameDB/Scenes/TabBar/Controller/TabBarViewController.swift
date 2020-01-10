@@ -24,7 +24,8 @@ class TabBarViewController: UITabBarController {
     // MARK: - Functions
     private func setupTabBar() {
         tabBar.tintColor = .red
-        tabBar.backgroundColor = .green
+        tabBar.barTintColor = .black
+        tabBar.unselectedItemTintColor = .white
     }
     
     private func setupViewControlers() {
@@ -34,7 +35,7 @@ class TabBarViewController: UITabBarController {
         genreFilterVC?.tabBarItem.title = "Filter"
         genreFilterVC?.tabBarItem.image = UIImage.fontAwesomeIcon(name: .filter, style: .solid, textColor: .black, size: CGSize(width: 35, height: 35))
         
-        viewControllers = [genreFilterVC!, gameSeachVC!]
+        viewControllers = [gameSeachVC!, genreFilterVC!]
         selectedViewController = gameSeachVC
     }
 

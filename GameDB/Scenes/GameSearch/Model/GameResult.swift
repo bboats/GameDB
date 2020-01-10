@@ -9,14 +9,17 @@
 import UIKit
 
 struct GameResult: Decodable {
+    let next: String?
     let results: [GameSample]?
     
     enum CodingKeys: String, CodingKey {
+        case next
         case results
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        next = try values.decodeIfPresent(String.self, forKey: .next)
         results = try values.decodeIfPresent([GameSample].self, forKey: .results) ?? []
     }
 }

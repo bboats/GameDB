@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0xZ-dd-ACt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0xZ-dd-ACt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +52,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Xmw-xj-Wta" firstAttribute="centerY" secondItem="TNQ-FM-Tji" secondAttribute="centerY" id="59Y-Df-rb5"/>
                                                 <constraint firstItem="Xmw-xj-Wta" firstAttribute="leading" secondItem="TNQ-FM-Tji" secondAttribute="leading" constant="10" id="NCC-bV-DO6"/>
@@ -71,6 +70,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="gameTitleLabel" destination="9re-8s-TUi" id="cib-na-MOl"/>
+                                    <outlet property="gameView" destination="TNQ-FM-Tji" id="Rip-x5-bPP"/>
                                     <outlet property="ratingLabel" destination="SNT-kl-69b" id="crU-HC-P0L"/>
                                     <outlet property="ratingView" destination="Xmw-xj-Wta" id="9zU-57-lpv"/>
                                 </connections>
@@ -91,7 +91,6 @@
         <!--Navigation Controller-->
         <scene sceneID="J7A-lM-7Bb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3ez-uU-ABR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0xZ-dd-ACt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -104,6 +103,7 @@
                         <segue destination="fQc-BF-fvc" kind="relationship" relationship="rootViewController" id="ZnT-Ux-UmB"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ez-uU-ABR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5639.130434782609" y="-11.383928571428571"/>
         </scene>

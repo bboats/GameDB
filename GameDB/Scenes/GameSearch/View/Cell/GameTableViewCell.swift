@@ -15,6 +15,7 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var gameView: UIView!
     
     // MARK: - Properties
     var game: GameSample! {
@@ -28,6 +29,8 @@ class GameTableViewCell: UITableViewCell {
         gameTitleLabel.text = game.name
         gameTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         gameTitleLabel.textColor = .black
+        
+        gameView.backgroundColor = .red
         
         ratingView.layer.cornerRadius = 10
         if game.ratingsCount! > 10, let unRating = game.rating {

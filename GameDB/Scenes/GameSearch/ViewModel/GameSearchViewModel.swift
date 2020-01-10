@@ -42,6 +42,7 @@ class GameSearchViewModel {
     private func fetchApiData() {
         self.beginLoading()
         gameSamplesNetworking.getGameSample(parameters: lastUsedParameters) { result in
+            guard (result.next != nil) else { return }
             guard let unResults = result.results else { return }
             if self.lastUsedParameters["page"] == "1" {
                 self.gameSamplesArray = unResults

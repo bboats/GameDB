@@ -13,8 +13,6 @@ class GameSampleNetworking {
     
     // MARK: - Properties
     let baseUrl = "https://api.rawg.io/api"
-    //?page=2
-    //?search=final
     
     func getGameSample(parameters: [String:Any], completion: @escaping(GameResult) -> Void ) {
         request("\(baseUrl)/games",
