@@ -20,6 +20,10 @@ class GameSearchViewModel {
     
     //MARK: - Functions
     @objc func getGameSample(page: Int) {
+        if page == 1 {
+            self.gameSamplesArray = []
+            reloadTableView()
+        }
         lastUsedParameters["page"] = String(page)
         fetchApiData()
     }
@@ -27,7 +31,8 @@ class GameSearchViewModel {
     func searchGameSample(page: Int, searchField: String) {
         gameSamplesArray = []
         reloadTableView()
-        lastUsedParameters = ["page": String(page), "search": searchField]
+        lastUsedParameters["page"] = String(page)
+        lastUsedParameters["search"] = searchField
         fetchApiData()
     }
     

@@ -14,6 +14,8 @@ class GenreFilterTableViewController: UITableViewController {
     let viewModel = GenreFilterViewModel()
     let genreCellIdentifier = "genreCell"
     let refresher = UIRefreshControl()
+    var gamesTab: GameSearchTableViewController? = nil
+
 
     
     // MARK: -Lifecycle
@@ -25,7 +27,7 @@ class GenreFilterTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print(viewModel.selectedGenres.joined(separator: ","))
+        gamesTab?.filteredGenres = viewModel.selectedGenres
     }
 
     // MARK: - Tableview Datasource
@@ -39,15 +41,6 @@ class GenreFilterTableViewController: UITableViewController {
         cell.selectionStyle = .none
         
         cell.genre = viewModel.getGenreByIndex(index: indexPath.row)
-        
-//        if viewModel.selectGenreAt(index: indexPath.row) {
-//            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).selectedStyle()
-//            viewModel.selectedGenres.append(viewModel.getGenreByIndex(index: indexPath.row).name)
-//
-//        } else {
-//            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).unselectedStyle()
-//            viewModel.selectedGenres.removeAll { $0 == viewModel.getGenreByIndex(index: indexPath.row).name }
-//        }
 
         return cell
     }
@@ -58,25 +51,25 @@ class GenreFilterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if viewModel.selectGenreAt(index: indexPath.row) {
-            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).selectedStyle()
-            viewModel.selectedGenres.append(viewModel.getGenreByIndex(index: indexPath.row).name)
-            
-        } else {
-            (tableView.cellForRow(at: indexPath) as! GenreTableViewCell).unselectedStyle()
-            viewModel.selectedGenres.removeAll { $0 == viewModel.getGenreByIndex(index: indexPath.row).name }
-        }
+        viewModel.selectedGenres.append(viewModel.getGenreByIndex(index: indexPath.row).slug)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        viewModel.selectedGenres.removeAll { $0 == viewModel.getGenreByIndex(index: indexPath.row).slug }
     }
     
     // MARK: - Functions
     func setupTableView() {
         tableView.addSubview(refresher)
+        tableView.allowsMultipleSelection = true
     }
     
     private func setupBind() {
         viewModel.reloadTableView = self.tableView.reloadData
         viewModel.beginLoading = refresher.beginRefreshing
         viewModel.finishLoading = refresher.endRefreshing
+        let gamesNavigationView = self.tabBarController?.viewControllers![0] as! UINavigationController
+        gamesTab = gamesNavigationView.viewControllers[0] as? GameSearchTableViewController
     }
 
     private func setupFetch() {

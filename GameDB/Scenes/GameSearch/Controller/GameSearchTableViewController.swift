@@ -19,6 +19,17 @@ class GameSearchTableViewController: UITableViewController {
     private var lastPage = 1
     private let refresher = UIRefreshControl()
     private let searchBar = UISearchBar()
+    //propriedade recebida atraves da GenreFilterController
+    var filteredGenres: [String] = [] {
+        didSet {
+            if filteredGenres == [] {
+                viewModel.lastUsedParameters["genres"] = nil
+            } else if viewModel.lastUsedParameters["genres"] != filteredGenres.joined(separator: ",") {
+                viewModel.lastUsedParameters["genres"] = filteredGenres.joined(separator: ",")
+            }
+            viewModel.getGameSample(page: 1)
+        }
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

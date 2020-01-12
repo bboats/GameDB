@@ -11,4 +11,5 @@ import Foundation
 struct Genre: Decodable {
     let name: String
     let imageBackground: String?
+    let slug: String
 }

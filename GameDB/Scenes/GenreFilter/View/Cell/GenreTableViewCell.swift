@@ -32,15 +32,16 @@ class GenreTableViewCell: UITableViewCell {
         genreView.layer.cornerRadius = 10
     }
     
-    func selectedStyle() {
-        genreView.layer.backgroundColor = UIColor.black.cgColor
-        genreLabel.textColor = .white
-    }
-    
-    func unselectedStyle() {
-        genreView.layer.backgroundColor = UIColor.clear.cgColor
-        genreLabel.textColor = .black
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         
+        if selected {
+            genreView.layer.backgroundColor = UIColor.black.cgColor
+            genreLabel.textColor = .white
+        } else {
+            genreView.layer.backgroundColor = UIColor.clear.cgColor
+            genreLabel.textColor = .black
+        }
     }
     
 }

@@ -39,7 +39,7 @@ class GenreFilterViewModel {
         if genreList.indices.contains(index) {
             return genreList[index].genre
         } else {
-            return Genre(name: "out of bounds", imageBackground: "")
+            return Genre(name: "out of bounds", imageBackground: "", slug: "")
         }
     }
     
