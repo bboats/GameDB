@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0xZ-dd-ACt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0xZ-dd-ACt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,10 +26,10 @@
                                             <rect key="frame" x="10" y="12" width="404" height="46"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmw-xj-Wta">
-                                                    <rect key="frame" x="10" y="-2" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="-2" width="50" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNT-kl-69b">
-                                                            <rect key="frame" x="13.666666666666664" y="14.666666666666668" width="23" height="21.000000000000004"/>
+                                                            <rect key="frame" x="13.666666666666668" y="14.666666666666668" width="23.000000000000004" height="21.000000000000004"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9re-8s-TUi" userLabel="Game Title">
-                                                    <rect key="frame" x="70" y="12.999999999999998" width="324" height="20.333333333333329"/>
+                                                    <rect key="frame" x="60" y="12.999999999999998" width="334" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Xmw-xj-Wta" firstAttribute="centerY" secondItem="TNQ-FM-Tji" secondAttribute="centerY" id="59Y-Df-rb5"/>
-                                                <constraint firstItem="Xmw-xj-Wta" firstAttribute="leading" secondItem="TNQ-FM-Tji" secondAttribute="leading" constant="10" id="NCC-bV-DO6"/>
+                                                <constraint firstItem="Xmw-xj-Wta" firstAttribute="leading" secondItem="TNQ-FM-Tji" secondAttribute="leading" id="NCC-bV-DO6"/>
                                                 <constraint firstItem="9re-8s-TUi" firstAttribute="centerY" secondItem="TNQ-FM-Tji" secondAttribute="centerY" id="Ryw-xS-DYD"/>
                                                 <constraint firstAttribute="trailing" secondItem="9re-8s-TUi" secondAttribute="trailing" constant="10" id="hVE-BX-i1A"/>
                                                 <constraint firstItem="9re-8s-TUi" firstAttribute="leading" secondItem="Xmw-xj-Wta" secondAttribute="trailing" constant="10" id="uD3-tF-564"/>
@@ -83,10 +83,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="N7b-3m-e3g"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="vUR-QP-sSU" kind="show" identifier="gameDetail" id="FgP-wj-06i"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPV-bg-hV6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6549.275362318841" y="-11.383928571428571"/>
+        </scene>
+        <!--GameDetail-->
+        <scene sceneID="5g8-sa-tMo">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="gameDetail" storyboardName="GameDetail" id="vUR-QP-sSU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OLq-FP-ubu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ze1-9t-sbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7091" y="-11"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J7A-lM-7Bb">

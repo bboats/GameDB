@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9po-1j-BEA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game Detail View Controller-->
+        <scene sceneID="bR6-aG-dgG">
+            <objects>
+                <viewController storyboardIdentifier="gameDetail" id="9po-1j-BEA" customClass="GameDetailViewController" customModule="GameDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TVZ-Dw-iDC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdd-Bh-zvF" userLabel="Background Image">
+                                <rect key="frame" x="0.0" y="44" width="414" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Oef-Z6-cKB"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZIW-CQ-WSZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="clearCell" rowHeight="200" id="Frq-wW-wWl" customClass="ClearCell" customModule="GameDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Frq-wW-wWl" id="jFa-TX-i8O">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" rowHeight="50" id="khl-WW-6nF" userLabel="Name Cell" customClass="NameCell" customModule="GameDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="khl-WW-6nF" id="9Xj-NC-ry2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc2-A6-BAd">
+                                                    <rect key="frame" x="165.5" y="14.5" width="83" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zc2-A6-BAd" firstAttribute="centerY" secondItem="9Xj-NC-ry2" secondAttribute="centerY" id="pS1-K8-jQR"/>
+                                                <constraint firstItem="Zc2-A6-BAd" firstAttribute="centerX" secondItem="9Xj-NC-ry2" secondAttribute="centerX" id="tMm-18-6YT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameTitleLabel" destination="Zc2-A6-BAd" id="KI9-HN-qwy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCell" rowHeight="150" id="TN1-iv-suj" userLabel="Description Cell" customClass="DescriptionCell" customModule="GameDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TN1-iv-suj" id="rVa-X2-L0I">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE1-Fo-wyw">
+                                                    <rect key="frame" x="25" y="16" width="364" height="118"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YE1-Fo-wyw" secondAttribute="bottom" constant="5" id="0uG-5L-MzC"/>
+                                                <constraint firstItem="YE1-Fo-wyw" firstAttribute="top" secondItem="rVa-X2-L0I" secondAttribute="topMargin" constant="5" id="6J8-oC-g0t"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YE1-Fo-wyw" secondAttribute="trailing" constant="5" id="Arq-kG-cPt"/>
+                                                <constraint firstItem="YE1-Fo-wyw" firstAttribute="leading" secondItem="rVa-X2-L0I" secondAttribute="leadingMargin" constant="5" id="ISU-NI-Y5o"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameDescriptionLabel" destination="YE1-Fo-wyw" id="xkJ-3I-1yA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genresCell" rowHeight="70" id="hg0-Tt-kNU" userLabel="Genres Cell" customClass="GenresCell" customModule="GameDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="428" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hg0-Tt-kNU" id="GfC-2c-C15">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-Wa-9fg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UL1-Dn-X3v">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="genreCell" id="7A5-fv-qV7" customClass="GenreCollectionViewCell" customModule="GameDB" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="10" width="100" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dZI-6j-VVn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w47-oB-TJr" userLabel="Genre">
+                                                                        <rect key="frame" x="27" y="14.5" width="46.5" height="21"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="w47-oB-TJr" firstAttribute="centerY" secondItem="dZI-6j-VVn" secondAttribute="centerY" id="EyM-Rg-BPM"/>
+                                                                    <constraint firstItem="w47-oB-TJr" firstAttribute="centerX" secondItem="dZI-6j-VVn" secondAttribute="centerX" id="MpD-ti-UVo"/>
+                                                                </constraints>
+                                                            </collectionViewCellContentView>
+                                                            <size key="customSize" width="100" height="50"/>
+                                                            <connections>
+                                                                <outlet property="genreLabel" destination="w47-oB-TJr" id="KhF-w2-1pd"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5GS-Wa-9fg" firstAttribute="leading" secondItem="GfC-2c-C15" secondAttribute="leading" id="DCI-gt-DAP"/>
+                                                <constraint firstItem="5GS-Wa-9fg" firstAttribute="top" secondItem="GfC-2c-C15" secondAttribute="top" id="bLV-Vz-sf0"/>
+                                                <constraint firstAttribute="trailing" secondItem="5GS-Wa-9fg" secondAttribute="trailing" id="r0W-1H-JSf"/>
+                                                <constraint firstAttribute="bottom" secondItem="5GS-Wa-9fg" secondAttribute="bottom" id="xRJ-f0-NiB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="genresCollectionView" destination="5GS-Wa-9fg" id="CGN-h7-d0E"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ZIW-CQ-WSZ" firstAttribute="top" secondItem="1NG-M0-Rbv" secondAttribute="top" id="1Tk-LK-rhx"/>
+                            <constraint firstItem="hdd-Bh-zvF" firstAttribute="leading" secondItem="1NG-M0-Rbv" secondAttribute="leading" id="3sA-i0-lCc"/>
+                            <constraint firstItem="ZIW-CQ-WSZ" firstAttribute="leading" secondItem="1NG-M0-Rbv" secondAttribute="leading" id="UDX-oQ-vVO"/>
+                            <constraint firstItem="1NG-M0-Rbv" firstAttribute="bottom" secondItem="ZIW-CQ-WSZ" secondAttribute="bottom" id="Z9M-ft-sT1"/>
+                            <constraint firstItem="1NG-M0-Rbv" firstAttribute="trailing" secondItem="hdd-Bh-zvF" secondAttribute="trailing" id="dfB-Bd-ew8"/>
+                            <constraint firstItem="hdd-Bh-zvF" firstAttribute="top" secondItem="1NG-M0-Rbv" secondAttribute="top" id="hD6-w1-MIT"/>
+                            <constraint firstItem="1NG-M0-Rbv" firstAttribute="trailing" secondItem="ZIW-CQ-WSZ" secondAttribute="trailing" id="s1B-fF-wct"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1NG-M0-Rbv"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="hdd-Bh-zvF" id="zcZ-uP-rcL"/>
+                        <outlet property="tableView" destination="ZIW-CQ-WSZ" id="4pr-79-srv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOo-mn-Fn4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="-31"/>
+        </scene>
+    </scenes>
+</document>

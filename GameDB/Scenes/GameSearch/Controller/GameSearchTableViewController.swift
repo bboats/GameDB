@@ -10,8 +10,6 @@ import UIKit
 
 class GameSearchTableViewController: UITableViewController {
 
-    // MARK: - Outlets
-    
     // MARK: - Properties
     //instanciar os balaco
     private let gameCellIdentifier = "gameCell"
@@ -46,7 +44,6 @@ class GameSearchTableViewController: UITableViewController {
         
         searchBar.backgroundColor = .white
         navigationItem.titleView = searchBar
-        navigationController?.navigationBar.barTintColor = .black
         
         refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
@@ -101,16 +98,21 @@ class GameSearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedGame = viewModel.getGameByIndex(index: indexPath.row)
+        performSegue(withIdentifier: "gameDetail", sender: selectedGame?.id)
+    }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        if segue.identifier == "gameDetail" {
+            let vc = segue.destination as! GameDetailViewController
+        
+            vc.gameId = sender as? Int
+        }
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
 

@@ -28,11 +28,10 @@ class GameTableViewCell: UITableViewCell {
     private func setupCell() {
         gameTitleLabel.text = game.name
         gameTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        gameTitleLabel.textColor = .black
+        gameTitleLabel.textColor = .white
         
-        gameView.backgroundColor = .red
+        gameView.backgroundColor = .black
         
-        ratingView.layer.cornerRadius = 10
         if game.ratingsCount! > 10, let unRating = game.rating {
             ratingLabel.text = String(unRating)
             ratingLabel.font = UIFont.boldSystemFont(ofSize: 18)
