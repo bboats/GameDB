@@ -38,6 +38,7 @@
 		02517BFC23C8DB3B00059F02 /* GenreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02517BFB23C8DB3B00059F02 /* GenreTableViewCell.swift */; };
 		028622A223C78245004C6F78 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028622A123C78245004C6F78 /* TabBarViewController.swift */; };
 		02909FA023C78A00008512A2 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02909F9F23C78A00008512A2 /* TabBar.storyboard */; };
+		02FAC97623DB4CD800CD85CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FAC97523DB4CD800CD85CF /* GradientView.swift */; };
 		EF3634953FC9C6FF9E48F1E9 /* Pods_GameDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C1CB236F409C7130C03338 /* Pods_GameDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		02517BFB23C8DB3B00059F02 /* GenreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreTableViewCell.swift; sourceTree = "<group>"; };
 		028622A123C78245004C6F78 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		02909F9F23C78A00008512A2 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		02FAC97523DB4CD800CD85CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		489D1F0C3C4F1116569EE5B9 /* Pods-GameDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDB.release.xcconfig"; path = "Target Support Files/Pods-GameDB/Pods-GameDB.release.xcconfig"; sourceTree = "<group>"; };
 		B96814FC7057FBCF985CE7FE /* Pods-GameDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameDB.debug.xcconfig"; path = "Target Support Files/Pods-GameDB/Pods-GameDB.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C1CB236F409C7130C03338 /* Pods_GameDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +278,7 @@
 			children = (
 				0222CFCF23CC327100229170 /* Cell */,
 				0222CFCB23CC29F500229170 /* GameDetail.storyboard */,
+				02FAC97523DB4CD800CD85CF /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				0222CFDD23CC423700229170 /* GenreCollectionViewCell.swift in Sources */,
 				02517BF723C8B04C00059F02 /* GenreFilterNetworking.swift in Sources */,
 				0222CFD523CC32B600229170 /* ClearCell.swift in Sources */,
+				02FAC97623DB4CD800CD85CF /* GradientView.swift in Sources */,
 				020DBCDC23C63C120062E4CE /* GameResult.swift in Sources */,
 				0222CFD123CC328200229170 /* NameCell.swift in Sources */,
 				020DBCE223C6429E0062E4CE /* Genre.swift in Sources */,

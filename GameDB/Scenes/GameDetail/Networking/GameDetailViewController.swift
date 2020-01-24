@@ -14,6 +14,7 @@ class GameDetailViewController: UIViewController {
     // MARK: - Parameters
     var gameId: Int?
     let viewModel = GameDetailViewModel()
+    var expandedDescription = false
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +33,7 @@ class GameDetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.allowsSelection = false
     }
     
     private func setupBind() {
@@ -64,6 +66,11 @@ extension GameDetailViewController: UITableViewDataSource {
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell") as! DescriptionCell
             cell.gameDescription = viewModel.gameDetail?.descriptionRaw
+            cell.showExpandedDescription = {self.expandedDescription = true; tableView.reloadData()}
+            if expandedDescription {
+                cell.gradientView.isHidden = true
+                cell.showMoreButton.isHidden = true
+            }
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "genresCell") as! GenresCell
@@ -87,7 +94,7 @@ extension GameDetailViewController: UITableViewDelegate {
         case 1:
             return 50
         case 2:
-            return 150
+            return expandedDescription ? UITableView.automaticDimension : 150
         default:
             return 100
         }

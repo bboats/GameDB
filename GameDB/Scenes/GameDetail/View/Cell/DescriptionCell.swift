@@ -18,9 +18,15 @@ class DescriptionCell: UITableViewCell {
         }
     }
     
+    var showExpandedDescription: () -> Void = {}
+    
     // MARK: - Outlets
     @IBOutlet weak var gameDescriptionLabel: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var showMoreButton: UIButton!
     
-    
+    @IBAction func seeMorePressed(_ sender: Any) {
+        showExpandedDescription()
+    }
     
 }

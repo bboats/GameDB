@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9po-1j-BEA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9po-1j-BEA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -65,21 +65,49 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE1-Fo-wyw">
-                                                    <rect key="frame" x="25" y="16" width="364" height="118"/>
+                                                    <rect key="frame" x="25" y="11" width="364" height="128"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r43-Ud-Ndy" customClass="GradientView" customModule="GameDB" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="60" width="414" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="kBM-dr-EHN"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                            <color key="value" red="1" green="1" blue="1" alpha="0.20375327797202797" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOp-0i-TCI">
+                                                    <rect key="frame" x="189" y="115" width="36" height="30"/>
+                                                    <state key="normal" title="More"/>
+                                                    <connections>
+                                                        <action selector="seeMorePressed:" destination="TN1-iv-suj" eventType="touchUpInside" id="b6u-gW-2Bh"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YE1-Fo-wyw" secondAttribute="bottom" constant="5" id="0uG-5L-MzC"/>
-                                                <constraint firstItem="YE1-Fo-wyw" firstAttribute="top" secondItem="rVa-X2-L0I" secondAttribute="topMargin" constant="5" id="6J8-oC-g0t"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YE1-Fo-wyw" secondAttribute="bottom" id="0uG-5L-MzC"/>
+                                                <constraint firstItem="YE1-Fo-wyw" firstAttribute="top" secondItem="rVa-X2-L0I" secondAttribute="topMargin" id="6J8-oC-g0t"/>
+                                                <constraint firstItem="xOp-0i-TCI" firstAttribute="bottom" secondItem="r43-Ud-Ndy" secondAttribute="bottom" constant="-5" id="AQz-jQ-r5v"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="YE1-Fo-wyw" secondAttribute="trailing" constant="5" id="Arq-kG-cPt"/>
                                                 <constraint firstItem="YE1-Fo-wyw" firstAttribute="leading" secondItem="rVa-X2-L0I" secondAttribute="leadingMargin" constant="5" id="ISU-NI-Y5o"/>
+                                                <constraint firstItem="xOp-0i-TCI" firstAttribute="centerX" secondItem="r43-Ud-Ndy" secondAttribute="centerX" id="OAP-td-4ad"/>
+                                                <constraint firstAttribute="bottom" secondItem="r43-Ud-Ndy" secondAttribute="bottom" id="TZp-To-MaQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="r43-Ud-Ndy" secondAttribute="trailing" id="VJh-KR-Q3O"/>
+                                                <constraint firstItem="r43-Ud-Ndy" firstAttribute="leading" secondItem="rVa-X2-L0I" secondAttribute="leading" id="YfN-az-y0r"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="gameDescriptionLabel" destination="YE1-Fo-wyw" id="xkJ-3I-1yA"/>
+                                            <outlet property="gradientView" destination="r43-Ud-Ndy" id="KIe-zW-S9M"/>
+                                            <outlet property="showMoreButton" destination="xOp-0i-TCI" id="gCp-Pc-sdu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genresCell" rowHeight="70" id="hg0-Tt-kNU" userLabel="Genres Cell" customClass="GenresCell" customModule="GameDB" customModuleProvider="target">
